@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: docconnect
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Postgres@1994
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+    show-sql: false
+  
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.ltuc.docconnect: DEBUG
+    org.hibernate.SQL: DEBUG  ً
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+
+jwt:
+  base64-secret: Zk1xQ2RZc1V0T2hWbE5uRkR3S0RrM3JmVkp5cEJXQ0l1d0R6Y0ZpQ2pZPQ==
